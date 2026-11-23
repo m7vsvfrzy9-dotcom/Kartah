@@ -1,0 +1,28 @@
+name: Kartah iOS Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app
+
+      - name: Check Xcode
+        run: xcodebuild -version
+
+      - name: Build Kartah
+        run: |
+          xcodebuild \
+            -project Kartah.xcodeproj \
+            -scheme Kartah \
+            -sdk iphoneos \
+            -configuration Release \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO
