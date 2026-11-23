@@ -1,0 +1,24 @@
+
+name: Kartah
+
+options:
+  bundleIdPrefix: com.kartah
+  deploymentTarget:
+    iOS: "15.0"
+
+targets:
+  Kartah:
+    type: application
+    platform: iOS
+    sources:
+      - path: KartahApp
+
+  KeyboardExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: KeyboardExtension
+    settings:
+      INFOPLIST_FILE: KeyboardExtension/Info.plist
+      PRODUCT_BUNDLE_IDENTIFIER: com.kartah.keyboard
+      APPLICATION_EXTENSION_API_ONLY: YES
