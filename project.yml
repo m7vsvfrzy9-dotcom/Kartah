@@ -1,4 +1,3 @@
-
 name: Kartah
 
 options:
@@ -12,6 +11,9 @@ targets:
     platform: iOS
     sources:
       - path: KartahApp
+    dependencies:
+      - target: KeyboardExtension
+        embed: true
 
   KeyboardExtension:
     type: app-extension
@@ -22,3 +24,4 @@ targets:
       INFOPLIST_FILE: KeyboardExtension/Info.plist
       PRODUCT_BUNDLE_IDENTIFIER: com.kartah.keyboard
       APPLICATION_EXTENSION_API_ONLY: YES
+      SKIP_INSTALL: YES
